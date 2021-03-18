@@ -1,0 +1,30 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: UserWeb03
+  thymeleaf:
+    cache: false
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true  #打开cloud的重试
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka,http://localhost:10087/eureka
+USERPROVIDER:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    OkToRetryOnAllOperations: false  #只针对读操作进行重试
+    MaxAutoRetriesNextServer: 1  #切换服务实例的次数
+    MaxAutoRetries: 1
+#设定Hystrix熔断超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+

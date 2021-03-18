@@ -1,0 +1,9 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: HelloConsumer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka,http://localhost:10087/eureka

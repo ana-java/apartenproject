@@ -1,0 +1,9 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: helloprovider
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka,http://localhost:10087/eureka
